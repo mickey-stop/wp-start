@@ -20,6 +20,12 @@ This is the template for the hedaer
         echo wp_title('');
     }?>
 </title>
+<!-- Added icon -->
+<?php if ( ! function_exists( 'has_site_icon' ) || ! has_site_icon() ) : ?>
+	<?php if ( get_theme_mod( 'site_favicon' ) ) : ?>
+		<link rel="shortcut icon" href="<?php echo esc_url( get_theme_mod( 'site_favicon' ) ); ?>" />
+	<?php endif; ?>
+<?php endif; ?>
 <?php wp_head();?>
 </head>
 <body>
