@@ -17,18 +17,18 @@ This is the template for the hedaer
     <?php if(is_front_page() || is_home()){
         echo get_bloginfo('name');
     } else{
-        echo wp_title('');
+        echo wp_title('').' | '.get_bloginfo('name');
     }?>
 </title>
 <!-- Added icon -->
 <?php if ( ! function_exists( 'has_site_icon' ) || ! has_site_icon() ) : ?>
-	<?php if ( get_theme_mod( 'site_favicon' ) ) : ?>
-		<link rel="shortcut icon" href="<?php echo esc_url( get_theme_mod( 'site_favicon' ) ); ?>" />
-	<?php endif; ?>
+<link rel="icon" href="<?php echo get_stylesheet_directory_uri().'/favicon.ico'?>" type="image/x-icon" />
+<link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri().'/favicon.ico'?>" type="image/x-icon" />	
 <?php endif; ?>
 <?php wp_head();?>
 </head>
 <body>
+<?php echo get_theme_mod( 'site_favicon' ); ?>
 <div class="my-menu">
     <?php
         wp_nav_menu( array(
